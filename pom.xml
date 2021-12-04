@@ -16,6 +16,8 @@
 
     <modules>
         <module>spring-boot-validation-research</module>
+        <module>spring-boot-security-research</module>
+        <module>common</module>
     </modules>
 
     <name>springboot整合技术栈调研</name>

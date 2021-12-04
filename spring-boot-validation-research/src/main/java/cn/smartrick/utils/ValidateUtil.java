@@ -20,10 +20,23 @@ import java.util.Set;
 public class ValidateUtil {
     private static Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
+    /**
+     * 校验对象所有参数
+     * @param obj
+     * @param groups
+     * @return
+     */
     public static <T> ValidateResult validateEntity(T obj, Class<?>... groups) {
         return obtainValidateResult(validator.validate(obj, groups.length == 0 ? new Class[]{Default.class} : groups));
     }
 
+    /**
+     * 校验对象指定属性
+     * @param obj
+     * @param propertyName
+     * @param groups
+     * @return
+     */
     public static <T> ValidateResult validateProperty(T obj, String propertyName, Class<?>... groups) {
         return obtainValidateResult(validator.validateProperty(obj, propertyName, groups.length == 0 ? new Class[]{Default.class} : groups));
     }

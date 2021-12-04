@@ -10,17 +10,21 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Date: 2021/12/2 15:51
  * @Author: SmartRick
- * @Description: TODO
+ * @Description: 全局异常处理器，SpringMvc组件用于补货指定异常并在处理后相应
  */
 @ControllerAdvice
 @RestController
-public class GlobalExceptionController {
-
+public class GlobalExceptionHandler {
+    /**
+     * @ResponseStatus 设置HTTP相应状态码
+     * @ExceptionHandler 捕获指定异常并处理
+     */
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> validateHandler(MethodArgumentNotValidException e) {
