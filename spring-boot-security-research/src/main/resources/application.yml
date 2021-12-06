@@ -6,3 +6,9 @@ spring:
     user:
       name: admin
       password: admin
+  datasource:
+    # spring 2.2开始默认支持mysql8的驱动，需要采用com.mysql.cj.jdbc.Driver驱动
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://8.142.34.31:3308/common_test?serverTimezone=GMT%2B8
+    username: root
+    password: funadmin123
