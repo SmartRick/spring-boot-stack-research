@@ -1,6 +1,6 @@
 import cn.smartrick.ValidationResearchApplication;
+import cn.smartrick.common.ValidateGroups;
 import cn.smartrick.common.ValidateResult;
-import cn.smartrick.common.groups.AddGroup;
 import cn.smartrick.domain.User;
 import cn.smartrick.utils.ValidateUtil;
 import org.junit.Test;
@@ -21,8 +21,8 @@ import java.util.Map;
 public class TestValidation {
     @Test
     public void testValidation() {
-        User user = new User("", 1, "dkods@kq", null);
-        ValidateResult validateResult = ValidateUtil.validateEntity(user, AddGroup.class, Default.class);
+        User user = new User("", 4, "dkods@kq", null);
+        ValidateResult validateResult = ValidateUtil.validateEntity(user, ValidateGroups.AddGroup.class, Default.class);
         if (validateResult.isHasErrors()) {
             for (Map.Entry entry : validateResult.getErrorMsg().entrySet()) {
                 System.out.println(String.format("属性%s检测失败，原因：%s", entry.getKey(), entry.getValue()));
