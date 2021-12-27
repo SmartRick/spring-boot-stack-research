@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    first:
+      url: jdbc:mysql://8.142.34.31:3308/common_test?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+      type: com.alibaba.druid.pool.DruidDataSource  # 设置数据源类型为 DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver      # 设置数据库链接驱动
+      username: root
+      password: funadmin123
+      # Druid 自定义配置，对应 DruidDataSource 中的 setting 方法的属性
+      min-idle: 5 # 池中维护的最小空闲连接数，默认为 0 个
+      max-active: 20  # 池中最大连接数，包括闲置和使用中的连接，默认为 8 个。
+    second:
+      url: jdbc:mysql://8.142.34.31:3308/shiro_test?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+      type: com.alibaba.druid.pool.DruidDataSource  # 设置数据源类型为 DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver      # 设置数据库链接驱动
+      username: root
+      password: funadmin123
+      # Druid 自定义配置，对应 DruidDataSource 中的 setting 方法的属性
+      min-idle: 10  # 池中维护的最小空闲连接数，默认为 0 个。
+      max-active: 10  # 池中最大连接数，包括闲置和使用中的连接，默认为 8 个。
+    druid:
+      # 过滤器配置
+      filter:
+        stat: # 配置 StatFilter ，对应文档 https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatFilter
+          log-slow-sql: true # 开启慢查询记录
+          slow-sql-millis: 5000 # 慢 SQL 的标准，单位：毫秒 （表示当SQL语句执行时长超过5秒，则判定该SQL为慢SQL）
+          # merge-sql: true
+      stat-view-servlet:  # 配置 StatViewServlet ，对应文档 https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_StatViewServlet%E9%85%8D%E7%BD%AE
+        enabled: true
+        login-username: admin
+        login-password: admin
+      # 缺省多个DruidDataSource的监控数据是各自独立的，在Druid-0.2.17版本之后，支持配置公用监控数据，合并多数据源监控数据
+      use-global-data-source-stat: true

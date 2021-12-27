@@ -19,7 +19,7 @@
         <module>spring-boot-security-research</module>
         <module>common</module>
         <module>spring-boot-aop-research</module>
-        <module>spring-boot-data-elasticsearch</module>
+        <module>spring-boot-component-research</module>
     </modules>
 
     <name>springboot整合技术栈调研</name>
@@ -30,14 +30,14 @@
         <junit.version>4.12</junit.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.boot.bersion>2.5.6</spring.boot.bersion>
+        <lombok.version>1.18.12</lombok.version>
+        <druid.version>1.1.21</druid.version>
+        <mysql.version>5.1.48</mysql.version>
+        <mybatis-plus.version>3.3.1</mybatis-plus.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+
 
         <dependency>
             <groupId>junit</groupId>
@@ -52,6 +52,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.12</version>
@@ -61,6 +67,23 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
             <!--            <dependency>-->
             <!--                <groupId>org.springframework.boot</groupId>-->
             <!--                <artifactId>spring-boot-dependencies</artifactId>-->
