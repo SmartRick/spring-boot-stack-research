@@ -19,6 +19,7 @@
         <module>spring-boot-security-research</module>
         <module>common</module>
         <module>spring-boot-aop-research</module>
+        <module>spring-boot-data-elasticsearch</module>
     </modules>
 
     <name>springboot整合技术栈调研</name>

@@ -1,0 +1,4 @@
+spring:
+  elasticsearch:
+    rest:
+      uris: http://8.142.34.31:9200

@@ -11,6 +11,8 @@
 
     <artifactId>spring-boot-aop-research</artifactId>
 
+    <name>SpringAop切面注解调研</name>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
