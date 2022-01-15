@@ -1,0 +1,8 @@
+
+# 七牛云上传文件配置
+upload:
+  qiniu:
+    domain: http://qom6sw8fx.hn-bkt.clouddn.com
+    access-key: zleLSPC4eUhRu08F0vL7073UsX2kh8bGfSPbELFx
+    secret-key: 5T2Gg_enE5Ie2skfe8J4BQTLKLcEoyLn6WvPUc_l
+    bucket: soul-manager

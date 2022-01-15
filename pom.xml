@@ -15,11 +15,13 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
+        <module>common</module>
         <module>spring-boot-validation-research</module>
         <module>spring-boot-security-research</module>
-        <module>common</module>
         <module>spring-boot-aop-research</module>
         <module>spring-boot-component-research</module>
+        <module>spring-boot-qiniu-research</module>
+        <module>spring-boot-autoconfigure-research</module>
     </modules>
 
     <name>springboot整合技术栈调研</name>
