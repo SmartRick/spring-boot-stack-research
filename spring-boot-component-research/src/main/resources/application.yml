@@ -31,3 +31,6 @@ spring:
         login-password: admin
       # 缺省多个DruidDataSource的监控数据是各自独立的，在Druid-0.2.17版本之后，支持配置公用监控数据，合并多数据源监控数据
       use-global-data-source-stat: true
+
+cus:
+  name: ssd

@@ -14,9 +14,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @Description: TODO
  */
 @MapperScan(basePackages = "cn.smartrick.mapper")
-@EnableTransactionManagement
+//@EnableTransactionManagement    //spring-boot-starter-jdbc自动配置事务管理器
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-@EnableAspectJAutoProxy
+//@EnableAspectJAutoProxy         //spring-boot-starter-aop自动配置AOP切面
 public class StartApplication {
     public static void main(String[] args) {
         SpringApplication.run(StartApplication.class, args);

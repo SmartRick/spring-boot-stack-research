@@ -32,7 +32,7 @@ public class DruidConfig {
     }
 
     @Bean
-    @Primary //当需要注入DataSource是，首先注入当前数据源
+    @Primary //当需要注入DataSource时，首先注入当前数据源
     public DataSource dynamicDataSource(DataSource firstDataSource, DataSource secondDataSource) {
         HashMap<Object, Object> datasources = new HashMap<>(2);
         datasources.put(DataSourceType.FIRST.name(), firstDataSource);

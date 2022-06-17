@@ -1,0 +1,15 @@
+spring:
+  redis:
+    host: 192.168.128.205
+    port: 63791
+    password: 123456
+    database: 0
+    # 设置redis连接空闲时间 1分钟
+    timeout: 60000
+    # 设置redis连接超时时间
+    connectTimeout: 1000
+
+    jedis:
+      pool:
+        max-active: 10
+        max-wait: 1500

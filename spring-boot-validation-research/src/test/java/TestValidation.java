@@ -2,9 +2,11 @@ import cn.smartrick.ValidationResearchApplication;
 import cn.smartrick.common.ValidateGroups;
 import cn.smartrick.common.ValidateResult;
 import cn.smartrick.domain.User;
+import cn.smartrick.domain.ValidTestComponent;
 import cn.smartrick.utils.ValidateUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -19,6 +21,9 @@ import java.util.Map;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ValidationResearchApplication.class)
 public class TestValidation {
+    @Autowired
+    private ValidTestComponent validTestComponent;
+
     @Test
     public void testValidation() {
         User user = new User("", 4, "dkods@kq", null);
@@ -31,5 +36,11 @@ public class TestValidation {
             System.out.println("对象验证成功");
 
         }
+    }
+
+    @Test
+    public void testMethodValidation() {
+        System.out.println(validTestComponent.toString());
+        validTestComponent.setName("");
     }
 }
