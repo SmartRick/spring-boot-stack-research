@@ -15,13 +15,14 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
+        <module>common</module>
         <module>spring-boot-validation-research</module>
         <module>spring-boot-security-research</module>
-        <module>common</module>
         <module>spring-boot-aop-research</module>
         <module>spring-boot-component-research</module>
-        <module>spring-boot-data-elasticsearch</module>
-        <module>spring-boot-data-redis</module>
+        <module>spring-boot-qiniu-research</module>
+        <module>spring-boot-autoconfigure-research</module>
+        <module>druid-sql-parser-research</module>
     </modules>
 
     <name>springboot整合技术栈调研</name>
@@ -39,8 +40,6 @@
     </properties>
 
     <dependencies>
-
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -62,7 +61,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
