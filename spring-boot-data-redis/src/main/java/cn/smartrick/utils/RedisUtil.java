@@ -1,5 +1,6 @@
 package cn.smartrick.utils;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.RedisConnectionFailureException;
 import org.springframework.data.redis.connection.RedisConnection;
@@ -8,6 +9,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -19,11 +21,24 @@ import java.util.concurrent.TimeUnit;
  * @Description: TODO
  */
 @Component
+@Slf4j
 public class RedisUtil {
     public volatile boolean isAlive;
 
-    @Autowired
     private RedisTemplate<Object, Object> redisTemplate;
+
+    @Autowired
+    public RedisUtil(RedisTemplate<Object, Object> redisTemplate) {
+        this.redisTemplate = redisTemplate;
+        RedisConnectionFactory connectionFactory = redisTemplate.getConnectionFactory();
+        try {
+            RedisConnection connection = connectionFactory.getConnection();
+            connection.close();
+            this.isAlive = true;
+        } catch (RedisConnectionFailureException e) {
+            log.error("尝试重连redis失败：{}", e.getMessage());
+        }
+    }
 
     public boolean isAlive() {
         return isAlive;
@@ -78,6 +93,21 @@ public class RedisUtil {
     }
 
     /**
+     * 模糊查询Keys
+     *
+     * @param pattern 键表达式
+     * @return true 存在 false不存在
+     */
+    public Set<Object> keys(String pattern) {
+        try {
+            return redisTemplate.keys(pattern);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
      * 删除缓存
      *
      * @param key 可以传一个值 或多个
@@ -91,6 +121,16 @@ public class RedisUtil {
                 redisTemplate.delete(CollectionUtils.arrayToList(key));
             }
         }
+    }
+
+    /**
+     * 删除缓存
+     *
+     * @param collection 可以传一个值 或多个
+     */
+    @SuppressWarnings("unchecked")
+    public void del(Collection collection) {
+        redisTemplate.delete(collection);
     }
 
     /**

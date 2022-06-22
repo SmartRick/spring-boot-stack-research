@@ -21,6 +21,8 @@
         <module>spring-boot-aop-research</module>
         <module>spring-boot-component-research</module>
         <module>spring-boot-qiniu-research</module>
+        <module>spring-boot-data-redis</module>
+        <module>spring-boot-data-elasticsearch</module>
         <module>spring-boot-autoconfigure-research</module>
         <module>druid-sql-parser-research</module>
     </modules>

@@ -13,3 +13,42 @@ spring:
       pool:
         max-active: 10
         max-wait: 1500
+  #数据源
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://192.168.128.61:3306/sensitive?serverTimezone=Asia/Shanghai&useLegacyDatetimeCode=false&useSSL=false&nullNamePatternMatchesAll=true&useUnicode=true&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+#  cache:
+#    # 指定用redis实现缓存
+#    type: redis
+#    # 不缓存空值
+#    redis:
+#      cache-null-values: false
+
+
+mybatis-plus:
+  # mapper.xml文件扫描
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  # 实体扫描，多个package用逗号或者分号分隔
+  #typeAliasesPackage: com.yibo.essyncclient.*.entity
+  global-config:
+    # 数据库相关配置
+    db-config:
+      # 主键类型  AUTO:"数据库ID自增", INPUT:"用户输入ID", ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
+      id-type: AUTO
+      # 字段策略 IGNORED:"忽略判断",NOT_NULL:"非 NULL 判断"),NOT_EMPTY:"非空判断"
+      field-strategy: NOT_NULL
+      # 驼峰下划线转换
+      column-underline: true
+      # 数据库类型
+      db-type: mysql
+    banner: false
+
+logging:
+  level:
+    cn.smartrick.aspect.RedisConnectionAspect: DEBUG
+
+redis-cache:
+  expire: 15s
