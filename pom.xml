@@ -25,6 +25,7 @@
         <module>spring-boot-data-elasticsearch</module>
         <module>spring-boot-autoconfigure-research</module>
         <module>druid-sql-parser-research</module>
+        <module>spring-boot-starter-mail-research</module>
     </modules>
 
     <name>springboot整合技术栈调研</name>
